@@ -1,0 +1,37 @@
+.accordion-button {
+  transition: all 0.1s ease-in-out; /* smooth animation */
+}
+
+.accordion-button:hover {
+  transform: scale(1.03);              /* makes it slightly bigger */
+  /* box-shadow: 0 4px 12px rgba(0,0,0,0.15); subtle outer shadow */
+  z-index: 1; /* keeps it above other elements when scaling */
+}
+
+li {
+    margin:15px;
+    font-size: 1.05rem;
+}
+
+.announcements {
+    background-color: #fff4e6;
+    margin: 0 10px 10px 15px;
+    padding: 0 20px; 
+    border-left: 8px solid #ff9100
+}
+
+.quickLinks{
+    padding:0 20px;
+    margin-top:20px;
+}
+
+.quickLinks a{
+    font-size:1.1rem;
+    padding: 0.7rem 1.5rem;
+}
+
+#quickLinkText{
+    background-color: #f6f6f6;
+    cursor: default;
+    font-weight: 500;
+}
