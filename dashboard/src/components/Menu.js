@@ -26,7 +26,8 @@ const Menu = () => {
           </li>
         </ul>
         <hr />
-        <div className="profile" onClick={handleProfileClick}>
+        {/* <div className="profile" onClick={handleProfileClick}> */}
+        <div className="profile">
           <div className="avatar">ZU</div>
           <p className="username">USERID</p>
         </div>
