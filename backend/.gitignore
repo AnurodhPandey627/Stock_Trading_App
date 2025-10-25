@@ -1,0 +1,9 @@
+@"
+node_modules/
+build/
+dist/
+.env
+.vscode/
+npm-debug.log
+yarn-error.log
+"@ > dashboard/.gitignore
