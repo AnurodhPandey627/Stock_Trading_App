@@ -10,6 +10,7 @@ const url = process.env.MONGO_URL;
 
 const {HoldingsModel} = require("./models/HoldingsModel");
 const {PositionsModel} = require("./models/PositionsModel");
+const {OrdersModel} = require("./models/OrdersModel");
 
 
 const app = express();
@@ -200,3 +201,23 @@ app.get("/allPositions",async(req,res)=>{
     let allPositions = await PositionsModel.find({});
     res.json(allPositions);
 });
+
+//POST ROUTE FOR INSERTING ORDER INTO DB FROM THE DASHBOARD
+app.post("/newOrder",async(req,res)=>{
+    const {name,qty,price,mode} = req.body;
+    const newOrder = new OrdersModel({
+        name:name,
+        qty:qty,
+        price:price,
+        mode:mode
+    });
+
+    await newOrder.save();
+    res.send("ORDER SAVED!");
+});
+
+//GET ALL ORDERS FROM DB
+app.get("/allOrders",async (req,res)=>{
+    const allOrders = await OrdersModel.find({});
+    res.json(allOrders);
+})
