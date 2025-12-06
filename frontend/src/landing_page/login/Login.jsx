@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { signup } from "../../api/auth";
+import { login } from "../../api/auth";
 import { useNavigate } from "react-router-dom";
 
-export default function Signup() {
-  const [form, setForm] = useState({ email: "", username: "", password: "" });
+export default function Login() {
+  const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -16,25 +16,25 @@ export default function Signup() {
     setError("");
 
     try {
-      const res = await signup(form);
+      const res = await login(form);
       // backend /auth/verify returns: { status: true, user: { id, email, username } }
-      console.log("Signup response:", res.data);
+      console.log("Login response:", res.data);
 
       if (res.data.success) {
         // redirect to dashboard app (3001)
         window.location.href = "http://localhost:3001/";
       } else {
-        setError(res.data.message || "Signup failed");
+        setError(res.data.message || "Login failed");
       }
     } catch (err) {
       console.error(err);
-      setError(err.response?.data?.message || "Signup error");
+      setError(err.response?.data?.message || "Login error");
     }
   };
 
   return (
     <div>
-      <h1>Signup</h1>
+      <h1>Login</h1>
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       <form onSubmit={handleSubmit}>
@@ -45,19 +45,13 @@ export default function Signup() {
           onChange={handleChange}
         />
         <input
-          name="username"
-          placeholder="Username"
-          value={form.username}
-          onChange={handleChange}
-        />
-        <input
           name="password"
           type="password"
           placeholder="Password"
           value={form.password}
           onChange={handleChange}
         />
-        <button type="submit">Create account</button>
+        <button type="submit">Log in</button>
       </form>
     </div>
   );

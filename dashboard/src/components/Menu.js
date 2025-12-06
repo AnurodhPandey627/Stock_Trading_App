@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import {logout} from "../api/auth";
 
-const Menu = () => {
+const Menu = ({user}) => {
   const [selectedMenu,setSelectedMenu] = useState(0);
   const [isProfileDropdownOpen,setIsProfileDropdownOpen] = useState(false);
 
@@ -15,6 +16,15 @@ const Menu = () => {
   }
   const menuClass = "menu";
   const activeMenuCLass = "menu selected";
+
+  const handleLogout = async () => {
+    try {
+      await logout();                             // clear cookie
+      window.location.href = "http://localhost:3000/login"; // back to frontend
+    } catch (err) {
+      console.error("Logout error:", err);
+    }
+  };
 
   return (
     <div className="menu-container">
@@ -55,7 +65,10 @@ const Menu = () => {
         <hr />
         <div className="profile" onClick={handleProfileClick}>
           <div className="avatar">ZU</div>
-          <p className="username">USERID</p>
+          <p className="username">{user?.username}</p>
+          <button onClick={handleLogout} style={{ marginLeft: "12px" }}>
+            Logout
+          </button>
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const app = express();
 
 const PORT = process.env.PORT || 3002;
 const url = process.env.MONGO_URL;
@@ -12,16 +13,30 @@ const {HoldingsModel} = require("./models/HoldingsModel");
 const {PositionsModel} = require("./models/PositionsModel");
 const {OrdersModel} = require("./models/OrdersModel");
 
+const cookieParser = require("cookie-parser");
+const authRoute = require("./routes/AuthRoute");
+app.use(cookieParser());
+app.use(express.json());
 
-const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "http://localhost:3001"], // frontend(3000) + dashboard(3001)
+    credentials: true, // allow cookies
+  })
+);
+
 app.use(bodyParser.json());
+
+//MIDDLEWARE FOR USER AUTHENTICATION
+app.use("/auth",authRoute);
 
 app.listen(PORT,()=>{
     console.log(`App started and listening to port ${PORT}`);
-    mongoose.connect(url);
-    console.log("Connected to MongoDB");
+    mongoose.connect(url)
+    .then(() => console.log("Connected to MongoDB"))
+    .catch((err) => console.log("Connection Error:", err));
+
 });
 
 //Adding Dummy data for the first time into the db

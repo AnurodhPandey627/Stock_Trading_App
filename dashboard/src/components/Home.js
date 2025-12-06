@@ -1,13 +1,48 @@
-import React from "react";
-
+// dashboard/src/components/Home.jsx
+import React, { useEffect, useState } from "react";
+import { verifyUser } from "../api/auth";
 import Dashboard from "./Dashboard";
 import TopBar from "./TopBar";
 
 const Home = () => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const res = await verifyUser();
+        if (res.data.status) {
+          setUser(res.data.user); // {id, email, username}
+        } else {
+          setUser(null);
+        }
+      } catch (err) {
+        console.error("Verification error:", err);
+        setUser(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    checkAuth();
+  }, []);
+
+  if (loading) {
+    return <div>Checking Session...</div>;
+  }
+
+  if (!user) {
+    // not authenticated → send to frontend login
+    window.location.href = "http://localhost:3000/login";
+    return null;
+  }
+
+  // authenticated → show dashboard UI
   return (
     <>
-      <TopBar />
-      <Dashboard />
+      <TopBar user={user}/>
+      <Dashboard user={user} />
     </>
   );
 };

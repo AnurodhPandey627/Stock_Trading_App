@@ -18,6 +18,9 @@ function Navbar() {
                         <Link class="nav-link" aria-current="page" to="/signup">Signup</Link>
                         </li>
                         <li class="nav-item">
+                        <Link class="nav-link" aria-current="page" to="/login">Login</Link>
+                        </li>
+                        <li class="nav-item">
                         <Link class="nav-link" to="/about">About</Link>
                         </li>
                         <li class="nav-item">
