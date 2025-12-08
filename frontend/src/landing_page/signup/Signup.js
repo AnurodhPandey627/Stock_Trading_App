@@ -17,11 +17,8 @@ export default function Signup() {
 
     try {
       const res = await signup(form);
-      // backend /auth/verify returns: { status: true, user: { id, email, username } }
-      console.log("Signup response:", res.data);
 
       if (res.data.success) {
-        // redirect to dashboard app (3001)
         window.location.href = "http://localhost:3001/";
       } else {
         setError(res.data.message || "Signup failed");
@@ -33,32 +30,38 @@ export default function Signup() {
   };
 
   return (
-    <div>
-      <h1>Signup</h1>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+    <div className="auth-container">
+      <div className="auth-box">
+        <h1 className="auth-title">Signup</h1>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          name="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-        />
-        <input
-          name="username"
-          placeholder="Username"
-          value={form.username}
-          onChange={handleChange}
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={handleChange}
-        />
-        <button type="submit">Create account</button>
-      </form>
+        {error && <p className="auth-error">{error}</p>}
+
+        <form onSubmit={handleSubmit} className="auth-form">
+          <input
+            name="email"
+            placeholder="Email"
+            value={form.email}
+            onChange={handleChange}
+            className="auth-input"
+          />
+          <input
+            name="username"
+            placeholder="Username"
+            value={form.username}
+            onChange={handleChange}
+            className="auth-input"
+          />
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={form.password}
+            onChange={handleChange}
+            className="auth-input"
+          />
+          <button type="submit" className="auth-btn">Create account</button>
+        </form>
+      </div>
     </div>
   );
 }

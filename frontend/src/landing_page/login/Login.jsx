@@ -17,11 +17,8 @@ export default function Login() {
 
     try {
       const res = await login(form);
-      // backend /auth/verify returns: { status: true, user: { id, email, username } }
-      console.log("Login response:", res.data);
 
       if (res.data.success) {
-        // redirect to dashboard app (3001)
         window.location.href = "http://localhost:3001/";
       } else {
         setError(res.data.message || "Login failed");
@@ -33,26 +30,31 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+    <div className="login-container">
+      <div className="login-box">
+        <h1 className="login-title">Login</h1>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          name="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={handleChange}
-        />
-        <button type="submit">Log in</button>
-      </form>
+        {error && <p className="login-error">{error}</p>}
+
+        <form onSubmit={handleSubmit} className="login-form">
+          <input
+            name="email"
+            placeholder="Email"
+            value={form.email}
+            onChange={handleChange}
+            className="login-input"
+          />
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={form.password}
+            onChange={handleChange}
+            className="login-input"
+          />
+          <button type="submit" className="login-btn">Log in</button>
+        </form>
+      </div>
     </div>
   );
 }

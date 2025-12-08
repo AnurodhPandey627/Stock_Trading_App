@@ -15,3 +15,106 @@ code {
 .nav-link{
   margin-left:1rem;
 }
+
+/* ---------- Shared Layout ---------- */
+.auth-container,
+.login-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f6f9;
+}
+
+/* ---------- Shared Card Box ---------- */
+.auth-box,
+.login-box {
+  background: white;
+  padding: 32px;
+  width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease;
+  text-align: center;
+}
+
+/* ---------- Titles ---------- */
+.auth-title,
+.login-title {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* ---------- Error Messages ---------- */
+.auth-error,
+.login-error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* ---------- Forms ---------- */
+.auth-form,
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ---------- Inputs ---------- */
+.auth-input,
+.login-input {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.auth-input:focus,
+.login-input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+}
+
+/* ---------- Buttons ---------- */
+.auth-btn,
+.login-btn {
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.auth-btn:hover,
+.login-btn:hover {
+  background: #0056c7;
+}
+
+/* ---------- Animation ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Mobile Responsive ---------- */
+@media (max-width: 400px) {
+  .auth-box,
+  .login-box {
+    width: 90%;
+    padding: 22px;
+  }
+}
