@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {logout} from "../api/auth";
+const FRONTEND_URL = REACT_APP_FRONTEND_URL
 
 const Menu = ({user}) => {
   const [selectedMenu,setSelectedMenu] = useState(0);
@@ -20,7 +21,7 @@ const Menu = ({user}) => {
   const handleLogout = async () => {
     try {
       await logout();                             // clear cookie
-      window.location.href = "http://localhost:3000/login"; // back to frontend
+      window.location.href = `${FRONTEND_URL}/login"; // back to frontend
     } catch (err) {
       console.error("Logout error:", err);
     }

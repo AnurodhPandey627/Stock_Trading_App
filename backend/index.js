@@ -18,10 +18,16 @@ const authRoute = require("./routes/AuthRoute");
 app.use(cookieParser());
 app.use(express.json());
 
+const allowedOrigins = [
+  'http://localhost:3000',                      // frontend dev
+  'http://localhost:3001',                      // dashboard dev
+  //'https://stock-landing.netlify.app',          // CHANGE after deploy
+  //'https://stock-dashboard.netlify.app'         // CHANGE after deploy
+];
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:3001"], // frontend(3000) + dashboard(3001)
+    allowedOrigins,
     credentials: true, // allow cookies
   })
 );

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { login } from "../../api/auth";
 import { useNavigate } from "react-router-dom";
+const DASHBOARD_URL = process.env.REACT_APP_DASHBOARD_URL;
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -19,7 +20,7 @@ export default function Login() {
       const res = await login(form);
 
       if (res.data.success) {
-        window.location.href = "http://localhost:3001/";
+        window.location.href = `${DASHBOARD_URL}/`;
       } else {
         setError(res.data.message || "Login failed");
       }
