@@ -14,7 +14,7 @@ module.exports.Signup = async (req, res, next) => {
     res.cookie("token", token, {
       withCredentials: true,
       httpOnly: false,
-      sameSite: "lax",
+      sameSite: "None",
     });
     res
       .status(201)
@@ -43,7 +43,7 @@ module.exports.Login = async (req, res, next) => {
      res.cookie("token", token, {
        withCredentials: true,
        httpOnly: false,
-       sameSite: "lax",
+       sameSite: "None",
      });
      res.status(201).json({ message: "User logged in successfully", success: true });
      next()
@@ -67,7 +67,8 @@ module.exports.Verify = (req,res) => {
 module.exports.Logout = (req,res) => {
   res.clearCookie("token", {
     httpOnly: true,
-    sameSite: "lax",
+    sameSite: "None",
+    secure: true,
   });
   return res.json({ status: true, message: "Logged out successfully" });
 }

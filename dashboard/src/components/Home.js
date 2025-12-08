@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { verifyUser } from "../api/auth";
 import Dashboard from "./Dashboard";
 import TopBar from "./TopBar";
+const FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL
 
 const Home = () => {
   const [user, setUser] = useState(null);
@@ -34,7 +35,7 @@ const Home = () => {
 
   if (!user) {
     // not authenticated → send to frontend login
-    window.location.href = "http://localhost:3000/login";
+    window.location.href = `${FRONTEND_URL}/login`;
     return null;
   }
 

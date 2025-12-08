@@ -5,6 +5,6 @@ const API = axios.create({
   withCredentials: true, // send/receive cookies
 });
 
-export const signup = (data) => API.post("/auth/signup", data);
-export const login = (data) => API.post("/auth/login", data);
+export const signup = (data) => API.post("/auth/signup", data,{withCredentials: true});
+export const login = (data) => API.post("/auth/login", data, {withCredentials: true});
 export const verifyUser = () => API.get("/auth/verify");
