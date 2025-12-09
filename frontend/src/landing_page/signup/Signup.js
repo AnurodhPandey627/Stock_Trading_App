@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { signup } from "../../api/auth";
-import { useNavigate } from "react-router-dom";
 const DASHBOARD_URL = process.env.REACT_APP_DASHBOARD_URL;
 
 export default function Signup() {
