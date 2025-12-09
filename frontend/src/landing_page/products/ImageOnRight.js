@@ -13,7 +13,7 @@ function ImageOnRight({productTitle, productDescription, learnMore, imageUrl}) {
         </div>
         {/* <div className="col-2"></div> */}
         <div className="col-5 pb-5">
-          <img src={imageUrl} />
+          <img src={imageUrl} alt=""/>
         </div>
       </div>
     </div>

@@ -6,7 +6,6 @@ const DASHBOARD_URL = process.env.REACT_APP_DASHBOARD_URL;
 export default function Signup() {
   const [form, setForm] = useState({ email: "", username: "", password: "" });
   const [error, setError] = useState("");
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });

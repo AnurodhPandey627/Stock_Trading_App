@@ -6,8 +6,7 @@ const DASHBOARD_URL = process.env.REACT_APP_DASHBOARD_URL;
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
-  const navigate = useNavigate();
-
+  
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };

@@ -13,7 +13,7 @@ function ImageOnLeft({
     <div className="container mb-5">
       <div className="row">
         <div className="col-5 p-5">
-          <img src={imageUrl} />
+          <img src={imageUrl} alt=""/>
         </div>
         <div className="col-2"></div>
         <div className="col-5 p-5">
@@ -29,10 +29,10 @@ function ImageOnLeft({
           </div>
           <div className="mt-5">
             <a href={googlePlay}>
-                <img src="media/images/google-play-badge.svg" />
+                <img src="media/images/google-play-badge.svg" alt="" />
             </a>
             <a href={appStore} style={{marginLeft:"20%"}}>
-                <img src="media/images/appstore-badge.svg" />
+                <img src="media/images/appstore-badge.svg" alt=""/>
             </a>
           </div>
         </div>
