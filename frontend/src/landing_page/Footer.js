@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 
 function Footer() {
@@ -6,19 +7,19 @@ function Footer() {
             <div className='container p-5'>
                 <div className='row'>
                     <div className='col'>
-                        <img style={{width:"50%"}} src='media/images/logo.svg'></img>
+                        <img style={{width:"50%"}} src='media/images/logo.svg' alt='logo'></img>
                         <p>&copy; 2010 - 2025, Zerodha Broking Ltd.All rights reserved.</p>
                         <div style={{opacity:"0.8"}}>
-                            <i class="fa-brands fa-x-twitter me-3 fs-5" ></i>
-                            <i class="fa-brands fa-square-facebook me-3 fs-5"></i>
-                            <i class="fa-brands fa-instagram me-3 fs-5"></i>
-                            <i class="fa-brands fa-linkedin-in me-3 fs-5"></i>
+                            <i className="fa-brands fa-x-twitter me-3 fs-5" ></i>
+                            <i className="fa-brands fa-square-facebook me-3 fs-5"></i>
+                            <i className="fa-brands fa-instagram me-3 fs-5"></i>
+                            <i className="fa-brands fa-linkedin-in me-3 fs-5"></i>
                         </div>
                         <hr></hr>
                         <div style={{opacity:"0.8"}}>
-                            <i class="fa-brands fa-youtube me-3 fs-5"></i>
-                            <i class="fa-brands fa-whatsapp me-3 fs-5"></i>
-                            <i class="fa-brands fa-telegram me-3 fs-5"></i>
+                            <i className="fa-brands fa-youtube me-3 fs-5"></i>
+                            <i className="fa-brands fa-whatsapp me-3 fs-5"></i>
+                            <i className="fa-brands fa-telegram me-3 fs-5"></i>
                         </div>
                     </div>
                     <div className='col'>
