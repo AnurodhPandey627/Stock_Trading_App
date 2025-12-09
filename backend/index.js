@@ -19,8 +19,10 @@ app.use(cookieParser());
 app.use(express.json());
 
 const allowedOrigins = [
-  'http://localhost:3000',                      // frontend dev
-  'http://localhost:3001',                      // dashboard dev
+  'http://localhost:3000',                      // frontend local
+  'http://localhost:3001',                      //dashboard local
+  'https://stock-trading-anu.netlify.app/',      // frontend dev
+  'https://stock-trading-anu-dashboard.netlify.app' //dashboard dev
 ];
 
 app.use(
