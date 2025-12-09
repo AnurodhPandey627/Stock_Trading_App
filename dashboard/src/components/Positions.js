@@ -28,7 +28,6 @@ const Positions = () => {
                       const currVal = stock.price * stock.qty;
                       const isProfit = currVal - stock.avg*stock.qty >= 0.0;
                       const profClass = isProfit? "profit" : "loss";
-                      const dayClass = stock.isLoss? "loss" : "profit";
           
                       return (
                         <tr key={indx}>
