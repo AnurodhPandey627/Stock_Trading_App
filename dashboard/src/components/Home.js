@@ -19,7 +19,7 @@ const Home = () => {
           setUser(null);
         }
       } catch (err) {
-        console.error("Verification error:", err);
+        console.error("Verification Error:", err);
         setUser(null);
       } finally {
         setLoading(false);
