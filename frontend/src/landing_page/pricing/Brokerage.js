@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { Tabs, Tab, Box } from "@mui/material";
 import Table from "./Table"; // we’ll create this reusable table

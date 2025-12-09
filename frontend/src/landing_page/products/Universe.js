@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 
 function Universe() {
@@ -17,6 +18,7 @@ function Universe() {
               <img
                 src="media/images/zerodhaFundhouse.png"
                 style={{ width: "50%" }}
+                alt="fundhouse"
               />
             </a>
             <p
@@ -32,6 +34,7 @@ function Universe() {
               <img
                 src="media/images/sensibullLogo.svg"
                 style={{ width: "50%" }}
+                alt="bullLogo"
               />
             </a>
             <p
@@ -45,7 +48,7 @@ function Universe() {
           </div>
           <div className="col-4 p-3">
             <a href="#">
-              <img src="media/images/tijori.svg" style={{ width: "50%" }} />
+              <img src="media/images/tijori.svg" style={{ width: "50%" }} alt="tijori"/>
             </a>
             <p
               className="text-small text-muted mt-3"
@@ -57,7 +60,7 @@ function Universe() {
           </div>
           <div className="col-4 p-3">
             <a href="#">
-              <img src="media/images/streakLogo.png" style={{ width: "50%" }} />
+              <img src="media/images/streakLogo.png" style={{ width: "50%" }} alt="streakLogo"/>
             </a>
             <p
               className="text-small text-muted mt-3"
@@ -72,6 +75,7 @@ function Universe() {
               <img
                 src="media/images/smallcaseLogo.png"
                 style={{ width: "50%" }}
+                alt="smallCaseLogo"
               />
             </a>
             <p
@@ -84,7 +88,7 @@ function Universe() {
           </div>
           <div className="col-4 p-3">
             <a href="#">
-              <img src="media/images/ditto-logo.png" style={{ width: "50%" }} />
+              <img src="media/images/ditto-logo.png" style={{ width: "50%" }} alt="dittoLogo"/>
             </a>
             <p
               className="text-small text-muted mt-3"
